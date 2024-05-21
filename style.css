@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: black;
+  
+}
+ .button-section{
+    padding: 300px 0px;
+ }
+.button-hover{  
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+ .btn{
+    padding: 40px 60px;
+    font-size: 40px;
+    background-color: aliceblue;
+    color: aliceblue;
+    border: none;
+    outline: none;
+    text-transform: capitalize;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 0;
+    position: relative;
+
+ }
+ .btn::after{
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: #333;
+    border-radius: 10px;
+    z-index: -1;
+ }
+ .btn::before{
+    position: absolute;
+    content: "";
+    background: linear-gradient(45deg,
+     #ff0000, #ff7300, #fffb00, #48ff00,
+    #00ffd5, #002bff, #ff00c8, #ff0000
+    );
+    left: -4px;
+    top: -4px;
+    height: calc(100% + 8px);
+    width: calc(100% + 8px);
+    filter: blur(8px);
+    background-size: 600%;
+
+    animation: tomal 20s linear infinite;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+    z-index: -1;
+    opacity: 0;
+
+ }
+
+@keyframes tomal {
+    0%{background-position: 0 0;}
+    50%{background-position: 400% 0;}
+    100%{background-position: 0 0;}
+}
+
+.btn:hover::before{
+    opacity: 1;
+}
+.btn:hover::after{
+    background: transparent;
+}
+.btn:hover{
+    color: #333;
+    font-weight: bold;
+}
+
+@media (max-width:550px) {
+    .btn {
+        padding: 30px 40px;
+    } 
+}
+@media (max-width:400px) {
+    .btn {
+        padding: 20px 25px;
+    } 
+}
+@media (max-width:320px) {
+    .btn {
+        padding: 12px 18px;
+    } 
+}
+
